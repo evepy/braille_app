@@ -1,3 +1,5 @@
+import 'package:braille_app/screens/alfabeto.dart';
+import 'package:braille_app/screens/convertir.dart';
 import 'package:flutter/material.dart';
 
 class Inicio extends StatelessWidget {
@@ -33,34 +35,52 @@ class Inicio extends StatelessWidget {
             children: [
               Column(
                 children: [
-                  Container(
-                width: 150,
-                height: 150,
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(221, 223, 163, 240),
-                          borderRadius: BorderRadius.all(Radius.circular(10),),),
-                child: Center(
-                  child: Image.network("https://cdn.pixabay.com/photo/2012/04/26/13/52/abc-42518_1280.png", height: 100, width: 100,),
-                ),
-              ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const AlfabetoPg()),
+                            );
+                    },
+                    child: Container(
+                                  width: 150,
+                                  height: 150,
+                                  decoration: BoxDecoration(
+                    color: Color.fromARGB(221, 223, 163, 240),
+                            borderRadius: BorderRadius.all(Radius.circular(10),),),
+                                  child: Center(
+                    child: Image.network("https://cdn.pixabay.com/photo/2012/04/26/13/52/abc-42518_1280.png", height: 100, width: 100,),
+                                  ),
+                                ),
+                  ),
               Text("Alfabeto")
                 ],
               ),
               SizedBox(width: 50,),
-              Column(
-                children: [
-                  Container(
-                width: 150,
-                height: 150,
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(221, 223, 163, 240),
-                          borderRadius: BorderRadius.all(Radius.circular(10),),),
-                child: Center(
-                  child: Image.network("https://cdn-icons-png.flaticon.com/512/50/50446.png", height: 100, width: 100,),
+              GestureDetector(
+                onTap: (){
+                  Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const ConvertirPg()),
+                            );
+                },
+                child: Column(
+                  children: [
+                    Container(
+                  width: 150,
+                  height: 150,
+                  decoration: BoxDecoration(
+                    color: Color.fromARGB(221, 223, 163, 240),
+                            borderRadius: BorderRadius.all(Radius.circular(10),),),
+                  child: Center(
+                    child: Image.network("https://cdn-icons-png.flaticon.com/512/50/50446.png", height: 100, width: 100,),
+                  ),
                 ),
-              ),
-              Text("Convertidor")
-                ],
+                Text("Convertidor")
+                  ],
+                ),
               ),
             ],
           ),
