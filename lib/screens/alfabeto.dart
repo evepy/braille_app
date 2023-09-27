@@ -1,3 +1,4 @@
+import 'package:braille_app/screens/detallealf.dart';
 import 'package:flutter/material.dart';
 
 class AlfabetoPg extends StatefulWidget {
@@ -48,12 +49,21 @@ class _AlfabetoPgState extends State<AlfabetoPg> {
                     children: [
                       Padding(
                         padding:const EdgeInsetsDirectional.fromSTEB(10,10,10,10),
-                        child: Container(
-                          width: 100,
-                          height: 100,
-                          decoration: BoxDecoration(
-                            color: const Color(0xC6E381FF),
-                            borderRadius: BorderRadius.circular(10)
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const DetalleA()),
+                              );
+                          },
+                          child: Container(
+                            width: 100,
+                            height: 100,
+                            decoration: BoxDecoration(
+                              color: const Color(0xC6E381FF),
+                              borderRadius: BorderRadius.circular(10)
+                            ),
                           ),
                         ),
                       ),
