@@ -14,10 +14,10 @@ class _AlfabetoPgState extends State<AlfabetoPg> {
         length: 4,
         child: Scaffold(
             appBar: AppBar(
-              backgroundColor: Color(0xFFFDBF00),
-              title: Align(alignment: Alignment.centerRight,
+              backgroundColor: const Color(0xFFFDBF00),
+              title: const Align(alignment: Alignment.centerRight,
               child: Text("EDUSEA"),),
-              bottom: TabBar(
+              bottom: const TabBar(
                 tabs: [
                   Tab(
                     text: "A",
@@ -38,7 +38,7 @@ class _AlfabetoPgState extends State<AlfabetoPg> {
               TabBarView(
                 children: [
                   GridView(
-                    gridDelegate:SliverGridDelegateWithFixedCrossAxisCount(
+                    gridDelegate:const SliverGridDelegateWithFixedCrossAxisCount(
                                 crossAxisCount: 3,
                                 crossAxisSpacing: 10,
                                 mainAxisSpacing: 10,
@@ -47,76 +47,76 @@ class _AlfabetoPgState extends State<AlfabetoPg> {
                     scrollDirection: Axis.vertical,
                     children: [
                       Padding(
-                        padding:EdgeInsetsDirectional.fromSTEB(10,10,10,10),
+                        padding:const EdgeInsetsDirectional.fromSTEB(10,10,10,10),
                         child: Container(
                           width: 100,
                           height: 100,
                           decoration: BoxDecoration(
-                            color: Color(0xC6E381FF),
+                            color: const Color(0xC6E381FF),
                             borderRadius: BorderRadius.circular(10)
                           ),
                         ),
                       ),
                       Padding(
-                        padding:EdgeInsetsDirectional.fromSTEB(10,10,10,10),
+                        padding:const EdgeInsetsDirectional.fromSTEB(10,10,10,10),
                         child: Container(
                           width: 100,
                           height: 100,
                           decoration: BoxDecoration(
-                            color: Color(0xC6E381FF),
+                            color: const Color(0xC6E381FF),
                             borderRadius: BorderRadius.circular(10)
                           ),
                         ),
                       ),
                       Padding(
-                        padding:EdgeInsetsDirectional.fromSTEB(10,10,10,10),
+                        padding:const EdgeInsetsDirectional.fromSTEB(10,10,10,10),
                         child: Container(
                           width: 100,
                           height: 100,
                           decoration: BoxDecoration(
-                            color: Color(0xC6E381FF),
+                            color: const Color(0xC6E381FF),
                             borderRadius: BorderRadius.circular(10)
                           ),
                         ),
                       ),
                       Padding(
-                        padding:EdgeInsetsDirectional.fromSTEB(10,10,10,10),
+                        padding:const EdgeInsetsDirectional.fromSTEB(10,10,10,10),
                         child: Container(
                           width: 100,
                           height: 100,
                           decoration: BoxDecoration(
-                            color: Color(0xC6E381FF),
+                            color: const Color(0xC6E381FF),
                             borderRadius: BorderRadius.circular(10)
                           ),
                         ),
                       ),
                       Padding(
-                        padding:EdgeInsetsDirectional.fromSTEB(10,10,10,10),
+                        padding:const EdgeInsetsDirectional.fromSTEB(10,10,10,10),
                         child: Container(
                           width: 100,
                           height: 100,
                           decoration: BoxDecoration(
-                            color: Color(0xC6E381FF),
+                            color: const Color(0xC6E381FF),
                             borderRadius: BorderRadius.circular(10)
                           ),
                         ),
                       ),
                       Padding(
-                        padding:EdgeInsetsDirectional.fromSTEB(10,10,10,10),
+                        padding:const EdgeInsetsDirectional.fromSTEB(10,10,10,10),
                         child: Container(
                           width: 100,
                           height: 100,
                           decoration: BoxDecoration(
-                            color: Color(0xC6E381FF),
+                            color: const Color(0xC6E381FF),
                             borderRadius: BorderRadius.circular(10)
                           ),
                         ),
                       ),
                     ],
                   ),
-                  Icon(Icons.headphones_battery_sharp),
-                  Icon(Icons.headphones_battery_sharp),
-                  Icon(Icons.headphones_battery_sharp),
+                  const Icon(Icons.headphones_battery_sharp),
+                  const Icon(Icons.headphones_battery_sharp),
+                  const Icon(Icons.headphones_battery_sharp),
                 ]
                 ),
             ));
