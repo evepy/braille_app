@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 class DetalleA extends StatelessWidget {
-  const DetalleA({super.key});
+  final String imageUrl;
 
+  DetalleA({required this.imageUrl});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -12,7 +13,7 @@ class DetalleA extends StatelessWidget {
               child: Text("EDUSEA"),),
             ),
         body: Center(
-          child: Image.network("https://res.cloudinary.com/drx46bxzy/image/upload/v1695824932/braille/Proyecto_nuevo_pocfnf.webp"),
+          child: Image.network(imageUrl),
         ),
     );
   }
