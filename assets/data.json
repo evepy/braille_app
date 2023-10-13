@@ -108,5 +108,119 @@
             "letter": "z",
             "image_url": "https://res.cloudinary.com/drx46bxzy/image/upload/v1696344569/braille/z_ipfio8.webp"
         }
+    ],
+    "diacriticos":[
+        {
+            "signodiacritico":"á",
+            "image_url":"https://res.cloudinary.com/drx46bxzy/image/upload/v1697208959/braille/diacritico1_tg1np4.webp"
+        },
+        {
+            "signodiacritico":"é",
+            "image_url":"https://res.cloudinary.com/drx46bxzy/image/upload/v1697208960/braille/diacritico2_mmvhne.webp"
+        },
+        {
+            "signodiacritico":"í",
+            "image_url":"https://res.cloudinary.com/drx46bxzy/image/upload/v1697208960/braille/diacritico3_uoiuaq.webp"
+        },
+        {
+            "signodiacritico":"ó",
+            "image_url":"https://res.cloudinary.com/drx46bxzy/image/upload/v1697208961/braille/diacritico4_k9glgz.webp"
+        },
+        {
+            "signodiacritico":"ú",
+            "image_url":"https://res.cloudinary.com/drx46bxzy/image/upload/v1697208977/braille/diacritico5_ycmrxz.webp"
+        },
+        {
+            "signodiacritico":"ü",
+            "image_url":"https://res.cloudinary.com/drx46bxzy/image/upload/v1697208977/braille/diacritico6_dfiyke.webp"
+        }
+    ],
+    "numeros": [
+        {
+            "nunmero":"1",
+            "image_url" :"https://res.cloudinary.com/drx46bxzy/image/upload/v1697208866/braille/1_qymgkd.webp"
+        },
+        {
+            "nunmero":"2",
+            "image_url" :"https://res.cloudinary.com/drx46bxzy/image/upload/v1697208866/braille/2_hfeicr.webp"
+        },
+        {
+            "nunmero":"3",
+            "image_url" :"https://res.cloudinary.com/drx46bxzy/image/upload/v1697208866/braille/3_zdzo3f.webp"
+        },
+        {
+            "nunmero":"4",
+            "image_url" :"https://res.cloudinary.com/drx46bxzy/image/upload/v1697208867/braille/4_aleltk.webp"
+        },
+        {
+            "nunmero":"5",
+            "image_url" :"https://res.cloudinary.com/drx46bxzy/image/upload/v1697208867/braille/5_w3j6gk.webp"
+        },
+        {
+            "nunmero":"6",
+            "image_url" :"https://res.cloudinary.com/drx46bxzy/image/upload/v1697208867/braille/6_g27pqq.webp"
+        },
+        {
+            "nunmero":"7",
+            "image_url" :"https://res.cloudinary.com/drx46bxzy/image/upload/v1697208867/braille/7_qcpgez.webp"
+        },
+        {
+            "nunmero":"8",
+            "image_url" :"https://res.cloudinary.com/drx46bxzy/image/upload/v1697208881/braille/8_xkwsyi.webp"
+        },
+        {
+            "nunmero":"9",
+            "image_url" :"https://res.cloudinary.com/drx46bxzy/image/upload/v1697208881/braille/9_gte5q1.webp"
+        },
+        {
+            "nunmero":"0",
+            "image_url" :"https://res.cloudinary.com/drx46bxzy/image/upload/v1697208853/braille/0_tfaknx.webp"
+        }
+    ],
+    "puntuacion":[
+        {
+            "puntuacion":".",
+            "image_url" :"https://res.cloudinary.com/drx46bxzy/image/upload/v1697208997/braille/puntuacion1_xyvjgs.webp"
+        },
+        {
+            "puntuacion":",",
+            "image_url" :"https://res.cloudinary.com/drx46bxzy/image/upload/v1697208898/braille/puntuacion2_gec9p7.webp"
+        },
+        {
+            "puntuacion":";",
+            "image_url" :"https://res.cloudinary.com/drx46bxzy/image/upload/v1697208898/braille/puntuacion3_ckihvc.webp"
+        },
+        {
+            "puntuacion":":",
+            "image_url" :"https://res.cloudinary.com/drx46bxzy/image/upload/v1697208898/braille/puntuacion4_j3dibm.webp"
+        },
+        {
+            "puntuacion":"-",
+            "image_url" :"https://res.cloudinary.com/drx46bxzy/image/upload/v1697208899/braille/puntuacion5_rxryqu.webp"
+        },
+        {
+            "puntuacion":"?",
+            "image_url" :"https://res.cloudinary.com/drx46bxzy/image/upload/v1697208899/braille/puntuacion6_c9h8ex.webp"
+        },
+        {
+            "puntuacion":"!",
+            "image_url" :"https://res.cloudinary.com/drx46bxzy/image/upload/v1697208900/braille/puntuacion7_gtxniw.webp"
+        },
+        {
+            "puntuacion":"\"",
+            "image_url" :"https://res.cloudinary.com/drx46bxzy/image/upload/v1697208900/braille/puntuacion8_slpj0a.webp"
+        },
+        {
+            "puntuacion":"(",
+            "image_url" :"https://res.cloudinary.com/drx46bxzy/image/upload/v1697208901/braille/puntuacion9_vgoe1n.webp"
+        },
+        {
+            "puntuacion":")",
+            "image_url" :"https://res.cloudinary.com/drx46bxzy/image/upload/v1697208944/braille/puntuacion10_huvmbv.webp"
+        },
+        {
+            "puntuacion":"...",
+            "image_url" :"https://res.cloudinary.com/drx46bxzy/image/upload/v1697208944/braille/puntuacion11_s4nxoc.webp"
+        }
     ]
 }
