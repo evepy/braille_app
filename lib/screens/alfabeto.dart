@@ -1,6 +1,8 @@
 //import 'package:braille_app/screens/detallealf.dart';
 import 'package:braille_app/screens/abecedariowg.dart';
 import 'package:braille_app/screens/diacriticoswg.dart';
+import 'package:braille_app/screens/numeroswg.dart';
+import 'package:braille_app/screens/puntuacionwg.dart';
 import 'package:flutter/material.dart';
 
 
@@ -43,8 +45,8 @@ class _AlfabetoPgState extends State<AlfabetoPg> {
             body: TabBarView(children: [
               AbecedarioWidget(),
               DiacriticosWidget(),
-              AbecedarioWidget(),
-              AbecedarioWidget(),
+              NumerosWidget(),
+              PuntuacionWidget(),
             ])));
   }
 }
