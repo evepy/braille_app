@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import '../models/braille_map.dart';
 
 class ConvertirPg extends StatefulWidget {
   const ConvertirPg({super.key});
@@ -13,27 +14,31 @@ class _ConvertirPgState extends State<ConvertirPg> {
   TextEditingController _controllertxt = TextEditingController();
   TextEditingController _braillecontrollertxt = TextEditingController();
 
-  String traducirTextoABraille(String textoBase) {
-    String textoBraille = '';
+String traducirTextoABraille2(String textoBase) {
+  String textoBraille = '';
+  bool signoNumeralAgregado = false; // Variable para rastrear si ya se agregó el signo de numeral
 
-    for (int i = 0; i < textoBase.length; i++) {
-      String letra = textoBase[i];
-      int valorUnicode = letra.codeUnitAt(0) - 65 + 0x2801;
+  for (int i = 0; i < textoBase.length; i++) {
+    String letra = textoBase[i].toUpperCase(); // Asegúrate de que esté en mayúsculas
 
-      // Solo convertir letras de la 'A' a la 'Z'
-      if (valorUnicode >= 0x2801 && valorUnicode <= 0x283A) {
-        textoBraille += String.fromCharCode(valorUnicode);
-      } else {
-        // Mantener caracteres no válidos tal como están
-        textoBraille += letra;
+    if ('0'.codeUnitAt(0) <= letra.codeUnitAt(0) && letra.codeUnitAt(0) <= '9'.codeUnitAt(0)) {
+      // Si la letra es un número, agrégala al texto Braille y agrega el signo de numeral si aún no se ha agregado
+      if (!signoNumeralAgregado) {
+        textoBraille += brailleUnicodeMap['#'] ?? '';
+        signoNumeralAgregado = true;
       }
+      textoBraille += brailleUnicodeMap[letra] ?? '';
+    } else if (brailleUnicodeMap.containsKey(letra)) {
+      // Si la letra es una letra válida en Braille, agrégala al texto Braille
+      textoBraille += brailleUnicodeMap[letra] ?? '';
+    } else {
+      // Mantén otros caracteres tal como están
+      textoBraille += letra;
     }
-
-    return textoBraille;
   }
 
-
-
+  return textoBraille;
+}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,7 +71,7 @@ class _ConvertirPgState extends State<ConvertirPg> {
                     ),
                   ),
                   onChanged: (texto) {
-                    _braillecontrollertxt.text = texto;
+                    _braillecontrollertxt.text = traducirTextoABraille2(texto);
                   },
                 ),
               ),
@@ -99,21 +104,7 @@ TextFormField(
   controller: _braillecontrollertxt,
   readOnly: true,
 ),
-            Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: TextField(
-            controller: _braillecontrollertxt ,
-            decoration: InputDecoration(labelText: 'Texto Base'),
-          ),
-        ),
-        ElevatedButton(
-          onPressed: () {
-            String textoBase = _braillecontrollertxt.text.toUpperCase();
-            String textoBraille = traducirTextoABraille(textoBase);
-            _braillecontrollertxt.text = textoBraille;
-          },
-          child: Text('Traducir a Braille'),
-        ),
+        
             ],
         ));
   }
