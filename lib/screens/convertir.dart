@@ -14,15 +14,15 @@ class _ConvertirPgState extends State<ConvertirPg> {
   TextEditingController _controllertxt = TextEditingController();
   TextEditingController _braillecontrollertxt = TextEditingController();
 
-String traducirTextoABraille2(String textoBase) {
+  String traducirTextoABraille2(String textoBase) {
   String textoBraille = '';
-  bool signoNumeralAgregado = false; // Variable para rastrear si ya se agregó el signo de numeral
+  bool signoNumeralAgregado = false;
+  bool signoMayusculaAgregado = false;
 
   for (int i = 0; i < textoBase.length; i++) {
-    String letra = textoBase[i].toUpperCase(); // Asegúrate de que esté en mayúsculas
+    String letra = textoBase[i];
 
     if ('0'.codeUnitAt(0) <= letra.codeUnitAt(0) && letra.codeUnitAt(0) <= '9'.codeUnitAt(0)) {
-      // Si la letra es un número, agrégala al texto Braille y agrega el signo de numeral si aún no se ha agregado
       if (!signoNumeralAgregado) {
         textoBraille += brailleUnicodeMap['#'] ?? '';
         signoNumeralAgregado = true;
@@ -31,14 +31,26 @@ String traducirTextoABraille2(String textoBase) {
     } else if (brailleUnicodeMap.containsKey(letra)) {
       // Si la letra es una letra válida en Braille, agrégala al texto Braille
       textoBraille += brailleUnicodeMap[letra] ?? '';
+    } else if (letra == ' ') {
+      // Reiniciar los indicadores de signo de numeral y mayúsculas en un espacio en blanco
+      signoNumeralAgregado = false;
+      signoMayusculaAgregado = false;
+      textoBraille += ' '; // Agregar espacio en blanco
+    } else if (letra == letra.toUpperCase()) {
+      // Si es una letra mayúscula
+      if (!signoMayusculaAgregado) {
+        textoBraille += brailleUnicodeMap['..'] ?? '';
+        signoMayusculaAgregado = true;
+      }
+      textoBraille += brailleUnicodeMap[letra.toLowerCase()] ?? '';
     } else {
-      // Mantén otros caracteres tal como están
       textoBraille += letra;
     }
   }
 
   return textoBraille;
 }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -80,32 +92,32 @@ String traducirTextoABraille2(String textoBase) {
               height: 20,
             ),
             Text("Texto en Braille:"),
-TextFormField(
-  decoration: InputDecoration(
-    suffixIcon: IconButton(
-      icon: Icon(Icons.content_copy),
-       onPressed: () {
-        Clipboard.setData(ClipboardData(text: _braillecontrollertxt.text))
-            .then((_) {
-          ScaffoldMessenger.of(context)
-              .showSnackBar(SnackBar(content: Text('Texto copiado al portapapeles')));
-        });
-      },
-    ),
-    fillColor: Colors.white,
-    filled: true,
-    contentPadding: EdgeInsets.all(27),
-    enabledBorder: OutlineInputBorder(
-      borderSide: BorderSide(color: Colors.white, width: 3),
-      borderRadius: BorderRadius.circular(10),
-    ),
-  ),
-  style: TextStyle(fontFamily: 'Braille'),
-  controller: _braillecontrollertxt,
-  readOnly: true,
-),
-        
-            ],
+            TextFormField(
+              decoration: InputDecoration(
+                suffixIcon: IconButton(
+                  icon: Icon(Icons.content_copy),
+                  onPressed: () {
+                    Clipboard.setData(
+                            ClipboardData(text: _braillecontrollertxt.text))
+                        .then((_) {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          content: Text('Texto copiado al portapapeles')));
+                    });
+                  },
+                ),
+                fillColor: Colors.white,
+                filled: true,
+                contentPadding: EdgeInsets.all(27),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white, width: 3),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+              style: TextStyle(fontFamily: 'Braille'),
+              controller: _braillecontrollertxt,
+              readOnly: true,
+            ),
+          ],
         ));
   }
 }
