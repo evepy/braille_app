@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../models/braille_map.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'dart:math' as math;
 
 class ConvertirPg extends StatefulWidget {
   const ConvertirPg({super.key});
@@ -54,70 +56,109 @@ class _ConvertirPgState extends State<ConvertirPg> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Color(0xFFFDBF00),
-          title: Align(
-            alignment: Alignment.centerRight,
-            child: Text("EDUSEA"),
+      resizeToAvoidBottomInset: false ,
+      backgroundColor: const Color(0xFFFFFBE1),
+        appBar: PreferredSize(
+      preferredSize: const Size.fromHeight(60),
+      child: AppBar(
+        elevation: 0,
+        backgroundColor: const Color(0xFFFDBF00),
+        leading: Transform.rotate(
+          angle: 180 * math.pi / 180,
+          child: IconButton(onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(Icons.forward)
           ),
         ),
-        body: Column(
-          children: [
-            Text("Convertir"),
-            SizedBox(
-              height: 30,
-            ),
-            Text("Texto:"),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
+        //automaticallyImplyLeading: false,
+        title: Align(
+          alignment: Alignment.centerRight, 
+          child: 
+            Container(
+              margin: const EdgeInsets.only(right: 40),
+              child: Text("EDUSEA",style: GoogleFonts.lato(fontWeight: FontWeight.w900,fontSize: 18,color: const Color.fromARGB(168, 255, 255, 255), letterSpacing: 0.1
+                          ),),
+            )),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(20),
+            bottomRight: Radius.circular(20),
+          )
+        ),
+      ),
+    ),
+        body: Padding(
+          padding: const EdgeInsets.only(left: 40, right: 40),
+          child: Column(
+            children: [
+              const SizedBox(height: 20,),
+              Text("Convertir", style: GoogleFonts.mukta(fontWeight: FontWeight.w900, fontSize: 31, letterSpacing: 0.8)),
+              const SizedBox(height: 30,),
+              const Align( alignment: Alignment.topLeft,
+                child: Text("Texto:",style: TextStyle(fontSize: 20 , fontWeight: FontWeight.w500))),
+              const SizedBox(height: 8,),
+              Container(
                 child: TextFormField(
                   controller: _controllertxt,
                   decoration: InputDecoration(
                     fillColor: Colors.white,
                     filled: true,
-                    contentPadding: EdgeInsets.all(27),
+                    contentPadding: const EdgeInsets.all(18),
                     enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.white, width: 3),
+                      borderSide: const BorderSide(color: Colors.white, width: 3),
                       borderRadius: BorderRadius.circular(10),
                     ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(color: Color(0xFFFDBF00), width: 3),
+                      borderRadius: BorderRadius.circular(10)
+                    )
                   ),
+                  maxLines: 7,
                   onChanged: (texto) {
                     _braillecontrollertxt.text = traducirTextoABraille2(texto);
                   },
                 ),
               ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Text("Texto en Braille:"),
-            TextFormField(
-              decoration: InputDecoration(
-                suffixIcon: IconButton(
-                  icon: Icon(Icons.content_copy),
-                  onPressed: () {
-                    Clipboard.setData(
-                            ClipboardData(text: _braillecontrollertxt.text))
-                        .then((_) {
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                          content: Text('Texto copiado al portapapeles')));
-                    });
-                  },
-                ),
-                fillColor: Colors.white,
-                filled: true,
-                contentPadding: EdgeInsets.all(27),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white, width: 3),
-                  borderRadius: BorderRadius.circular(10),
-                ),
+              const SizedBox(
+                height: 20,
               ),
-              style: TextStyle(fontFamily: 'Braille'),
-              controller: _braillecontrollertxt,
-              readOnly: true,
-            ),
-          ],
+              const Align(alignment: Alignment.topLeft,
+                child: Text("Texto en Braille:",style: TextStyle(fontSize: 20 , fontWeight: FontWeight.w500))),
+              const SizedBox(height: 8,),
+              TextFormField(
+                
+                decoration: InputDecoration(
+                  border: InputBorder.none,
+                  suffixIcon: Padding(
+                    padding: const EdgeInsetsDirectional.only(bottom:120),
+                    child: IconButton(
+                      icon: const Icon(Icons.content_copy, color: Colors.black,),
+                      onPressed: () {
+                        Clipboard.setData(
+                                ClipboardData(text: _braillecontrollertxt.text))
+                            .then((_) {
+                          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                              content: Text('Texto copiado al portapapeles')));
+                        });
+                      },
+                    ),
+                  ),
+                  fillColor: Colors.white,
+                  filled: true,
+                  contentPadding: const EdgeInsets.all(27),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide.none,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+                maxLines: 9,
+                style: const TextStyle(fontFamily: 'Braille'),
+                controller: _braillecontrollertxt,
+                readOnly: true,
+              ),
+            ],
+          ),
         ));
   }
 }

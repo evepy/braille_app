@@ -24,7 +24,7 @@ final Map<String, String> brailleUnicodeMap = {
   'w': '\u283A', 
   'x': '\u282D', 
   'y': '\u283D', 
-  'z': '\u2835', // CaK
+  'z': '\u2835', 
   '#': '\u283C',
   '1': '\u2801', 
   '2': '\u2803', 
