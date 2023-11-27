@@ -1,16 +1,18 @@
 # braille_app
 
-A new Flutter project.
+Banner
 
-## Getting Started
+## Detalle
 
-This project is a starting point for a Flutter application.
+Desarrollo de una aplicación móvil para la ONG EDUSEA, centrada en el sistema Braille. Proporciona un entorno educativo integral y una herramienta eficiente de conversión a Braille para mejorar la accesibilidad y conocimiento de personas con discapacidad visual.
 
-A few resources to get you started if this is your first Flutter project:
+## Funcionalidades
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Aprendizaje:  teoría sobre el sistema Braille con imágenes que contiene el abecedario, números, signos de puntuación y signos diacríticos.
+- Conversión: transformador de texto convencional a Braille.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Pantallas
+
+![Alt text](https://media.licdn.com/dms/image/D4D22AQHbuf20A6gXMw/feedshare-shrink_1280/0/1699395490185?e=1703721600&v=beta&t=7uMH42vxBSVKZV17zably4hr_iHPlz8NQBhiCC_3GeY)
+
+## Demo
