@@ -12,15 +12,15 @@ void main() async {
   SharedPreferences preferences = await SharedPreferences.getInstance();
   final bool hasRunBefore = preferences.getBool('hasRunBefore') ?? false;
 
-  runApp( MaterialApp(
-      title: 'BrailleApp',
-      debugShowCheckedModeBanner: false,
-      initialRoute: hasRunBefore ? '/home' : '/',
-      routes: {
-        '/': (context) => Onboarding(),
-        '/home': (context) => Inicio(),
-        '/alfabeto': (context) => AlfabetoPg(),
-        '/diacriticos': (context) => DiacriticosWidget(),
-      },
-    ));
+  runApp(MaterialApp(
+    title: 'BrailleApp',
+    debugShowCheckedModeBanner: false,
+    initialRoute: hasRunBefore ? '/home' : '/',
+    routes: {
+      '/': (context) => Onboarding(),
+      '/home': (context) => Inicio(),
+      '/alfabeto': (context) => AlfabetoPg(),
+      '/diacriticos': (context) => DiacriticosWidget(),
+    },
+  ));
 }

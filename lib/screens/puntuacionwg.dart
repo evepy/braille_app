@@ -37,12 +37,12 @@ class _PuntuacionWidgetState extends State<PuntuacionWidget> {
           child: GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 3,
-                crossAxisSpacing: 10,
-                mainAxisSpacing: 10,
+                crossAxisSpacing: 30,
+                mainAxisSpacing: 25,
                 childAspectRatio: 1,
               ),
               scrollDirection: Axis.vertical,
-              padding: const EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+              padding: const EdgeInsetsDirectional.fromSTEB(30, 10, 30, 10),
               itemCount: puntuacionData?.length ?? 0,
               itemBuilder: (context, index) {
                 final item = puntuacionData![index];

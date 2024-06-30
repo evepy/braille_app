@@ -37,12 +37,12 @@ class _NumerosWidgetState extends State<NumerosWidget> {
           child: GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 3,
-                crossAxisSpacing: 10,
-                mainAxisSpacing: 10,
+                crossAxisSpacing: 30,
+                mainAxisSpacing: 25,
                 childAspectRatio: 1,
               ),
               scrollDirection: Axis.vertical,
-              padding: const EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+              padding: const EdgeInsetsDirectional.fromSTEB(30, 10, 30, 10),
               itemCount: numerosData?.length ?? 0,
               itemBuilder: (context, index) {
                 final item = numerosData![index];

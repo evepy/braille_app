@@ -10,6 +10,7 @@ class Inicio extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: const Color(0xFFFFFBE1),
     appBar: AppBarE(
@@ -25,7 +26,11 @@ class Inicio extends StatelessWidget {
           const SizedBox(height: 20,),
           Center(child: Image.asset("assets/images/lapiz.png",height: 100,width: 100,)),
           const SizedBox(height: 5,),          
-          Text("¿Qué es el Braille?",style: GoogleFonts.mukta(fontWeight: FontWeight.w800, fontSize: 33)),
+          GestureDetector(
+            onTap:(){
+              print('Screen width: ${size.width}, height: ${size.height}');
+            },
+            child: Text("¿Qué es el Braille?",style: GoogleFonts.mukta(fontWeight: FontWeight.w800, fontSize: 33))),
           const Padding(padding: EdgeInsets.only(top:5),
             child: Text("El Braille es un sistema de escritura táctil\n creado para personas ciegas. El Braille es\n esencial para la educación y \ncomunicación de personas con \ndiscapacidad visual, y ha evolucionado\n con la tecnología, incluyendo el Braille\n digital. Ofrece acceso a información escrita\n y autonomía.", textAlign: TextAlign.center,style: TextStyle(fontSize: 18),),
           ),
@@ -74,16 +79,22 @@ class Inicio extends StatelessWidget {
                       child: Image.network("https://cdn-icons-png.flaticon.com/512/50/50446.png", height: 100, width: 100, scale: 0.5,),
                     ),
                   ),
-                  Text("Convertir",style: GoogleFonts.mukta(fontWeight:FontWeight.w700, fontSize: 18),)
+                  Text("Convertir",style: GoogleFonts.mukta(fontWeight:FontWeight.w700, fontSize: 18),),
+                  
                     ],
                   ),
+                  
                 ),
+               
               ],
             ),
           ),
-          
-        ]),
+          SizedBox(height: 50,),
+        ]
+       
+        ),
       ),
+      
     ),
     );
   }
