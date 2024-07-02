@@ -80,57 +80,62 @@ class _HomeState extends State<Onboarding> {
                           decoration:  BoxDecoration(
                               color: const Color.fromARGB(255, 255, 255, 255),
                               borderRadius: BorderRadius.circular(30)),
-                          child: Column(
-                            children: [
-                              Text(
-                                "EDUSEA es una \norganización sin fines\n de lucro ",
-                                style: GoogleFonts.lato(
-                                  fontWeight: FontWeight.w900,
-                                  fontSize: 28,
-                                  letterSpacing: 0.2,
-                                  color: const Color(0xFF0E194D),
+                          child: SingleChildScrollView(
+                            child: Column(
+                              children: [
+                                Text(
+                                  "EDUSEA es una \norganización sin fines\n de lucro ",
+                                  style: GoogleFonts.lato(
+                                    fontWeight: FontWeight.w900,
+                                    fontSize: 28,
+                                    letterSpacing: 0.2,
+                                    color: const Color(0xFF0E194D),
+                                  ),
+                                  textAlign: TextAlign.center,
+                                  
+                                  
                                 ),
-                                textAlign: TextAlign.center,
-                                
-                                
-                              ),
-                              const SizedBox(
-                                height: 15,
-                              ),
-                              Text(
-                                "Buscamos promover la ODS\n 3, 4 y 13!",
-                                style: 
-                                  GoogleFonts.notoSansKhudawadi(
-                                    fontSize: 11, 
-                                  color: const Color.fromARGB(255, 120, 120, 120),
-                                  letterSpacing: 0.3,
-                                  ),
-                                textAlign: TextAlign.center,
-                              ),
-                              const SizedBox(
-                                height: 20,
-                              ),
-                              ElevatedButton(
-                                  onPressed: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => const Inicio()),
-                                    );
-                                  },
-                                  style: ElevatedButton.styleFrom(
-                                    padding: const EdgeInsets.only(left: 30, right: 30,),
-                                    backgroundColor: const Color(0xFFFFC50F),
-                                    foregroundColor: Colors.white,
-                                    minimumSize: const Size(100, 50),
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(32.0)),
-                                  ),
-                                  child: Text("IR A APRENDER", 
-                                  style: GoogleFonts.roboto(
-                                    fontWeight: FontWeight.w700
-                                  ),))
-                            ],
+                                const SizedBox(
+                                  height: 15,
+                                ),
+                                Text(
+                                  "Buscamos promover la ODS\n 3, 4 y 13!",
+                                  style: 
+                                    GoogleFonts.notoSansKhudawadi(
+                                      fontSize: 11, 
+                                    color: const Color.fromARGB(255, 120, 120, 120),
+                                    letterSpacing: 0.3,
+                                    ),
+                                  textAlign: TextAlign.center,
+                                ),
+                                const SizedBox(
+                                  height: 20,
+                                ),
+                                ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => const Inicio()),
+                                      );
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                      padding: const EdgeInsets.only(left: 30, right: 30,),
+                                      backgroundColor: const Color(0xFFFFC50F),
+                                      foregroundColor: Colors.white,
+                                      minimumSize: const Size(100, 50),
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(32.0)),
+                                    ),
+                                    child: Text("IR A APRENDER", 
+                                    style: GoogleFonts.roboto(
+                                      fontWeight: FontWeight.w700
+                                    ),),
+                                    
+                                    ),
+                                    SizedBox(height: 40,)
+                              ],
+                            ),
                           ),
                         )),
                   ],
