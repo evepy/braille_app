@@ -166,35 +166,47 @@ class _DetalleBState extends State<DetalleB> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         if (currentIndex > 0)
-                          Padding(
-                            padding: const EdgeInsets.only(left: 30, bottom: 120),
-                            child: Transform.rotate(
-                              angle: 90 * math.pi / 180,
-                              child: IconButton(iconSize: 100,
-                                icon: const Icon(Icons.arrow_drop_down, size: 200,color: const Color(0xFFFDBF00) ),
-                                onPressed: () {
-                                  navigatePage(-1);
-                                },
-                              ),
+                         Padding(
+                        padding: const EdgeInsets.only(left: 30),
+                        child: Transform.rotate(
+                          angle: 90 * math.pi / 180,
+                          child: InkResponse(
+                            onTap: () {
+                              navigatePage(-1);
+                            },
+                            child: const Icon(
+                              Icons.arrow_drop_down,
+                              size: 100,
+                              color: Color(0xFFFDBF00),
                             ),
-                          )
+                            radius: 50, // Radio del splash para que sea circular
+                            splashColor: Colors.grey, // Color del splash
+                            borderRadius: BorderRadius.circular(100), // Borde circular
+                          ),
+                        ),
+                      )
                         else
                           const SizedBox(width: 10),
                         if (currentIndex < itemCount - 1)
                           Padding(
-                            padding: const EdgeInsets.only(right: 30, top: 80),
-                            child: Transform.rotate(
-                              angle: -90 * math.pi / 180,
-                              child: IconButton(iconSize: 100,
-                                icon: const Icon(Icons.arrow_drop_down,
-                                size: 200,
-                                     color:  Color(0xFFFDBF00)),
-                                onPressed: () {
-                                  navigatePage(1);
-                                },
-                              ),
+                        padding: const EdgeInsets.only(right: 30),
+                        child: Transform.rotate(
+                          angle: -90 * math.pi / 180,
+                          child: InkResponse(
+                            onTap: () {
+                              navigatePage(1);
+                            },
+                            child: const Icon(
+                              Icons.arrow_drop_down,
+                              size: 100,
+                              color: Color(0xFFFDBF00),
                             ),
-                          )
+                            radius: 50, // Radio del splash para que sea circular
+                            splashColor: Colors.grey, // Color del splash
+                            borderRadius: BorderRadius.circular(100), // Borde circular
+                          ),
+                        ),
+                      )
                         else
                           const SizedBox(width: 0),
                       ],

@@ -95,6 +95,9 @@ class _ShowDialogFuncState extends State<ShowDialogFunc> {
   bool isAtFirstPage = false;
   bool isAtLastPage = false;
 
+//
+
+
   @override
   void initState() {
     super.initState();
@@ -129,84 +132,101 @@ class _ShowDialogFuncState extends State<ShowDialogFunc> {
 
   @override
   Widget build(BuildContext context) {
-    return Dialog(
-      alignment: const FractionalOffset(0,0.5),
-      child: Container(
-        height: 520,
-        width: MediaQuery.of(context).size.width,
-        child: Column(
-          children: <Widget>[
-            Expanded(
-              child: Stack(
-                children: [
-                  PageView.builder(
-                    itemCount: widget.abecedarioData.length,
-                    controller: pageController,
-                    itemBuilder: (context, index) {
-                      final item = widget.abecedarioData[index];
-                      return Column(
-                        children: [
-                          const SizedBox(height: 10,),
-                          Text((item.letter ?? '').toUpperCase(), style: const TextStyle(fontSize: 50, fontWeight: FontWeight.bold), ),
-                          Image.network(
-                            item.imageUrl ?? '',
-                            fit: BoxFit.contain,
-                            width: 250
-                            //height: 450,
-                          ),
-                        ],
-                      );
-                    },
-                  ),
-                  Positioned(
-                    top: 50,
-                    left: 0,
-                    right: 0,
-                    bottom: 0,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        if (currentIndex > 0)
-                          Padding(
-                            padding: const EdgeInsets.only(left: 30, bottom: 120),
-                            child: Transform.rotate(
-                              angle: 90 * math.pi / 180,
-                              child: IconButton(iconSize: 100,
-                                icon: const Icon(Icons.arrow_drop_down, size: 200,color: const Color(0xFFFDBF00) ),
-                                onPressed: () {
-                                  navigatePage(-1);
-                                },
-                              ),
-                            ),
-                          )
-                        else
-                          const SizedBox(width: 10),
-                        if (currentIndex < itemCount - 1)
-                          Padding(
-                            padding: const EdgeInsets.only(right: 30, top: 80),
-                            child: Transform.rotate(
-                              angle: -90 * math.pi / 180,
-                              child: IconButton(iconSize: 100,
-                                icon: const Icon(Icons.arrow_drop_down,
-                                size: 200,
-                                     color:  Color(0xFFFDBF00)),
-                                onPressed: () {
-                                  navigatePage(1);
-                                },
-                              ),
-                            ),
-                          )
-                        else
-                          const SizedBox(width: 0),
-                      ],
-                    ),
-                  ),
-                ],
+  return Dialog(
+  alignment: const FractionalOffset(0, 0.5),
+  child: Container(
+    height: 520,
+    width: MediaQuery.of(context).size.width,
+    child: Column(
+      children: <Widget>[
+        Expanded(
+          child: Stack(
+            children: [
+              PageView.builder(
+                itemCount: widget.abecedarioData.length,
+                controller: pageController,
+                itemBuilder: (context, index) {
+                  final item = widget.abecedarioData[index];
+                  return Column(
+                    children: [
+                      const SizedBox(height: 10),
+                      Text(
+                        (item.letter ?? '').toUpperCase(),
+                        style: const TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
+                      ),
+                      Image.network(
+                        item.imageUrl ?? '',
+                        fit: BoxFit.contain,
+                        width: 250,
+                      ),
+                    ],
+                  );
+                },
               ),
-            ),
-          ],
+              Positioned(
+                top: 50,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    if (currentIndex > 0)
+                      Padding(
+                        padding: const EdgeInsets.only(left: 30),
+                        child: Transform.rotate(
+                          angle: 90 * math.pi / 180,
+                          child: InkResponse(
+                            onTap: () {
+                              navigatePage(-1);
+                            },
+                            child: const Icon(
+                              Icons.arrow_drop_down,
+                              size: 100,
+                              color: Color(0xFFFDBF00),
+                            ),
+                            radius: 50, // Radio del splash para que sea circular
+                            splashColor: Colors.grey, // Color del splash
+                            borderRadius: BorderRadius.circular(100), // Borde circular
+                          ),
+                        ),
+                      )
+                    else
+                      const SizedBox(width: 10),
+                    if (currentIndex < widget.abecedarioData.length - 1)
+                      Padding(
+                        padding: const EdgeInsets.only(right: 30),
+                        child: Transform.rotate(
+                          angle: -90 * math.pi / 180,
+                          child: InkResponse(
+                            onTap: () {
+                              navigatePage(1);
+                            },
+                            child: const Icon(
+                              Icons.arrow_drop_down,
+                              size: 100,
+                              color: Color(0xFFFDBF00),
+                            ),
+                            radius: 50, // Radio del splash para que sea circular
+                            splashColor: Colors.grey, // Color del splash
+                            borderRadius: BorderRadius.circular(100), // Borde circular
+                          ),
+                        ),
+                      )
+                    else
+                      const SizedBox(width: 10),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
-      ),
-    );
+      ],
+    ),
+  ),
+);
+
+
+
   }
 }
