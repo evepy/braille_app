@@ -34,41 +34,44 @@ class _AbecedarioWidgetState extends State<AbecedarioWidget> {
         Container(margin: const EdgeInsets.only(top:10),
           child: Text('Alfabeto', style: GoogleFonts.mukta(fontWeight: FontWeight.w900, fontSize: 31, letterSpacing: 0.9))),
         Expanded(
-          child: GridView.builder(
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3,
-                crossAxisSpacing: 30,
-                mainAxisSpacing: 25,
-                childAspectRatio: 1,
-              ),
-              scrollDirection: Axis.vertical,
-              padding: const EdgeInsetsDirectional.fromSTEB(30, 10, 30, 10),
-              itemCount: abecedarioData?.length ?? 0,
-              itemBuilder: (context, index) {
-                final item = abecedarioData![index];
-                return GestureDetector(
-                    onTap: () {
-                      if (abecedarioData != null && abecedarioData!.isNotEmpty) {
-        
-                        showDialog(
-                          barrierColor: Colors.transparent,
-                           context: context,
-                            builder: (context) {
-                              return ShowDialogFunc(
-                              abecedarioData: abecedarioData!,
-                              initialIndex: index,
-                );},);}},
-                    child: Container(
-                      width: 100,
-                      height: 100,
-                      decoration: BoxDecoration(
-                          color: const Color.fromARGB(97, 204, 108, 230),
-                          borderRadius: BorderRadius.circular(30)),
-                      child: Center(
-                        child: Text((item.letter ?? '').toUpperCase(), style: const TextStyle(fontSize: 50),),
-                      ),
-                    ));
-              }),
+          child: Container(
+            constraints: BoxConstraints(maxWidth: 600),
+            child: GridView.builder(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 3,
+                  crossAxisSpacing: 30,
+                  mainAxisSpacing: 25,
+                  childAspectRatio: 1,
+                ),
+                scrollDirection: Axis.vertical,
+                padding: const EdgeInsetsDirectional.fromSTEB(30, 10, 30, 10),
+                itemCount: abecedarioData?.length ?? 0,
+                itemBuilder: (context, index) {
+                  final item = abecedarioData![index];
+                  return GestureDetector(
+                      onTap: () {
+                        if (abecedarioData != null && abecedarioData!.isNotEmpty) {
+                    
+                          showDialog(
+                            barrierColor: Colors.transparent,
+                             context: context,
+                              builder: (context) {
+                                return ShowDialogFunc(
+                                abecedarioData: abecedarioData!,
+                                initialIndex: index,
+                  );},);}},
+                      child: Container(
+                        width: 100,
+                        height: 100,
+                        decoration: BoxDecoration(
+                            color: const Color.fromARGB(97, 204, 108, 230),
+                            borderRadius: BorderRadius.circular(30)),
+                        child: Center(
+                          child: Text((item.letter ?? '').toUpperCase(), style: const TextStyle(fontSize: 50),),
+                        ),
+                      ));
+                }),
+          ),
         ),
       ],
     );

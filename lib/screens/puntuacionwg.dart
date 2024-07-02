@@ -34,41 +34,44 @@ class _PuntuacionWidgetState extends State<PuntuacionWidget> {
         Container(margin: const EdgeInsets.only(top:10),
           child: Text('Signos Puntuación', style: GoogleFonts.mukta(fontWeight: FontWeight.w900, fontSize: 31, letterSpacing: 0.9))),
         Expanded(
-          child: GridView.builder(
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3,
-                crossAxisSpacing: 30,
-                mainAxisSpacing: 25,
-                childAspectRatio: 1,
-              ),
-              scrollDirection: Axis.vertical,
-              padding: const EdgeInsetsDirectional.fromSTEB(30, 10, 30, 10),
-              itemCount: puntuacionData?.length ?? 0,
-              itemBuilder: (context, index) {
-                final item = puntuacionData![index];
-                return GestureDetector(
-                    onTap: () {
-                      if (puntuacionData != null && puntuacionData!.isNotEmpty) {
-                        //final item = abecedarioData![index];
-                        showDialog(
-                          barrierColor: Colors.transparent,
-                           context: context,
-                            builder: (context) {
-                              return DetalleB(
-                              puntuacionData: puntuacionData!,
-                              initialIndex: index,
-                );},);}},
-                    child: Container(
-                      width: 100,
-                      height: 100,
-                      decoration: BoxDecoration(
-                          color: const Color.fromARGB(97, 204, 108, 230),
-                          borderRadius: BorderRadius.circular(30)),
-                      child: Center(
-                        child: Text((item.puntuacion ?? '').toUpperCase(), style: const TextStyle(fontSize: 50),),
-                      ),
-                    ));
-              }),
+          child: Container(
+            constraints: BoxConstraints(maxWidth: 600),
+            child: GridView.builder(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 3,
+                  crossAxisSpacing: 30,
+                  mainAxisSpacing: 25,
+                  childAspectRatio: 1,
+                ),
+                scrollDirection: Axis.vertical,
+                padding: const EdgeInsetsDirectional.fromSTEB(30, 10, 30, 10),
+                itemCount: puntuacionData?.length ?? 0,
+                itemBuilder: (context, index) {
+                  final item = puntuacionData![index];
+                  return GestureDetector(
+                      onTap: () {
+                        if (puntuacionData != null && puntuacionData!.isNotEmpty) {
+                          //final item = abecedarioData![index];
+                          showDialog(
+                            barrierColor: Colors.transparent,
+                             context: context,
+                              builder: (context) {
+                                return DetalleB(
+                                puntuacionData: puntuacionData!,
+                                initialIndex: index,
+                  );},);}},
+                      child: Container(
+                        width: 100,
+                        height: 100,
+                        decoration: BoxDecoration(
+                            color: const Color.fromARGB(97, 204, 108, 230),
+                            borderRadius: BorderRadius.circular(30)),
+                        child: Center(
+                          child: Text((item.puntuacion ?? '').toUpperCase(), style: const TextStyle(fontSize: 50),),
+                        ),
+                      ));
+                }),
+          ),
         ),
       ],
     );
