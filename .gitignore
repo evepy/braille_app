@@ -30,7 +30,12 @@ migrate_working_dir/
 .packages
 .pub-cache/
 .pub/
-/build/
+# Ignorar todo el contenido de la carpeta build
+/build/*
+
+# Exceptuar la carpeta build/web y su contenido
+!/build/web/
+
 
 # Symbolication related
 app.*.symbols

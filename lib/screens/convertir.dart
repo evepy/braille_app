@@ -100,7 +100,7 @@ class _ConvertirPgState extends State<ConvertirPg> {
                   scrollDirection: Axis.vertical,
                   child: Center(
                     child: Container(
-                      constraints: BoxConstraints(maxWidth: 600),
+                      constraints: const BoxConstraints(maxWidth: 600),
                       child: Column(
                         children: [
                           const Align( alignment: Alignment.topLeft,
