@@ -5,7 +5,10 @@ import 'dart:math' as math;
 import '../models/pun_min.dart';
 
 class PuntuacionWidget extends StatefulWidget {
+  const PuntuacionWidget({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _PuntuacionWidgetState createState() => _PuntuacionWidgetState();
 }
 
@@ -35,7 +38,7 @@ class _PuntuacionWidgetState extends State<PuntuacionWidget> {
           child: Text('Signos Puntuación', style: GoogleFonts.mukta(fontWeight: FontWeight.w900, fontSize: 31, letterSpacing: 0.9))),
         Expanded(
           child: Container(
-            constraints: BoxConstraints(maxWidth: 600),
+            constraints: const BoxConstraints(maxWidth: 600),
             child: GridView.builder(
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 3,
@@ -82,12 +85,13 @@ class DetalleB extends StatefulWidget {
   final List<PuntuacionMi> puntuacionData;
   final int initialIndex;
 
-  DetalleB({
+  const DetalleB({super.key, 
     required this.puntuacionData,
     required this.initialIndex,
   });
 
   @override
+  // ignore: library_private_types_in_public_api
   _DetalleBState createState() => _DetalleBState();
 }
 
@@ -123,7 +127,7 @@ class _DetalleBState extends State<DetalleB> {
     if (nextPage >= 0 && nextPage < itemCount) {
       pageController.animateToPage(
         nextPage,
-        duration: Duration(milliseconds: 300),
+        duration: const Duration(milliseconds: 300),
         curve: Curves.easeInOut,
       );
     }
@@ -133,7 +137,7 @@ class _DetalleBState extends State<DetalleB> {
   Widget build(BuildContext context) {
     return Dialog(
       alignment: const FractionalOffset(0,0.5),
-      child: Container(
+      child: SizedBox(
         height: 520,
         width: MediaQuery.of(context).size.width,
         child: Column(
@@ -149,7 +153,7 @@ class _DetalleBState extends State<DetalleB> {
                       return Column(
                         children: [
                           const SizedBox(height: 10,),
-                          Text((item.puntuacion ?? '').toUpperCase(), style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold), ),
+                          Text((item.puntuacion ?? '').toUpperCase(), style: const TextStyle(fontSize: 50, fontWeight: FontWeight.bold), ),
                           Image.network(
                             item.imageUrl ?? '',
                             fit: BoxFit.contain,
@@ -177,14 +181,14 @@ class _DetalleBState extends State<DetalleB> {
                             onTap: () {
                               navigatePage(-1);
                             },
+                            radius: 50, // Radio del splash para que sea circular
+                            splashColor: Colors.grey, // Color del splash
+                            borderRadius: BorderRadius.circular(100),
                             child: const Icon(
                               Icons.arrow_drop_down,
                               size: 100,
                               color: Color(0xFFFDBF00),
-                            ),
-                            radius: 50, // Radio del splash para que sea circular
-                            splashColor: Colors.grey, // Color del splash
-                            borderRadius: BorderRadius.circular(100), // Borde circular
+                            ), // Borde circular
                           ),
                         ),
                       )
@@ -199,14 +203,14 @@ class _DetalleBState extends State<DetalleB> {
                             onTap: () {
                               navigatePage(1);
                             },
+                            radius: 50, // Radio del splash para que sea circular
+                            splashColor: Colors.grey, // Color del splash
+                            borderRadius: BorderRadius.circular(100),
                             child: const Icon(
                               Icons.arrow_drop_down,
                               size: 100,
                               color: Color(0xFFFDBF00),
-                            ),
-                            radius: 50, // Radio del splash para que sea circular
-                            splashColor: Colors.grey, // Color del splash
-                            borderRadius: BorderRadius.circular(100), // Borde circular
+                            ), // Borde circular
                           ),
                         ),
                       )

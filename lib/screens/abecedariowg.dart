@@ -5,7 +5,10 @@ import 'dart:math' as math;
 import '../models/abc_min.dart';
 
 class AbecedarioWidget extends StatefulWidget {
+  const AbecedarioWidget({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _AbecedarioWidgetState createState() => _AbecedarioWidgetState();
 }
 
@@ -35,7 +38,7 @@ class _AbecedarioWidgetState extends State<AbecedarioWidget> {
           child: Text('Alfabeto', style: GoogleFonts.mukta(fontWeight: FontWeight.w900, fontSize: 31, letterSpacing: 0.9))),
         Expanded(
           child: Container(
-            constraints: BoxConstraints(maxWidth: 600),
+            constraints: const BoxConstraints(maxWidth: 600),
             child: GridView.builder(
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 3,
@@ -82,12 +85,13 @@ class ShowDialogFunc extends StatefulWidget {
   final List<AbecedarioMi> abecedarioData;
   final int initialIndex;
 
-  ShowDialogFunc({
+  const ShowDialogFunc({super.key, 
     required this.abecedarioData,
     required this.initialIndex,
   });
 
   @override
+  // ignore: library_private_types_in_public_api
   _ShowDialogFuncState createState() => _ShowDialogFuncState();
 }
 
@@ -137,7 +141,7 @@ class _ShowDialogFuncState extends State<ShowDialogFunc> {
   Widget build(BuildContext context) {
   return Dialog(
   alignment: const FractionalOffset(0, 0.5),
-  child: Container(
+  child: SizedBox(
     height: 520,
     width: MediaQuery.of(context).size.width,
     child: Column(
@@ -183,14 +187,14 @@ class _ShowDialogFuncState extends State<ShowDialogFunc> {
                             onTap: () {
                               navigatePage(-1);
                             },
+                            radius: 50, // Radio del splash para que sea circular
+                            splashColor: Colors.grey, // Color del splash
+                            borderRadius: BorderRadius.circular(100),
                             child: const Icon(
                               Icons.arrow_drop_down,
                               size: 100,
                               color: Color(0xFFFDBF00),
-                            ),
-                            radius: 50, // Radio del splash para que sea circular
-                            splashColor: Colors.grey, // Color del splash
-                            borderRadius: BorderRadius.circular(100), // Borde circular
+                            ), // Borde circular
                           ),
                         ),
                       )
@@ -205,14 +209,14 @@ class _ShowDialogFuncState extends State<ShowDialogFunc> {
                             onTap: () {
                               navigatePage(1);
                             },
+                            radius: 50, // Radio del splash para que sea circular
+                            splashColor: Colors.grey, // Color del splash
+                            borderRadius: BorderRadius.circular(100),
                             child: const Icon(
                               Icons.arrow_drop_down,
                               size: 100,
                               color: Color(0xFFFDBF00),
-                            ),
-                            radius: 50, // Radio del splash para que sea circular
-                            splashColor: Colors.grey, // Color del splash
-                            borderRadius: BorderRadius.circular(100), // Borde circular
+                            ), // Borde circular
                           ),
                         ),
                       )

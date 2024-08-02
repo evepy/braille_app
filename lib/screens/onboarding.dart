@@ -47,7 +47,7 @@ class _HomeState extends State<Onboarding> {
                   border: Border.all(color:Colors.black, width: 8.0,),
                   borderRadius: BorderRadius.circular(30)
                 ),
-                constraints: BoxConstraints(maxWidth: 500),
+                constraints: const BoxConstraints(maxWidth: 500),
                 child: Stack(
                   children: [
                     Positioned(
@@ -133,7 +133,7 @@ class _HomeState extends State<Onboarding> {
                                     ),),
                                     
                                     ),
-                                    SizedBox(height: 50,)
+                                    const SizedBox(height: 50,)
                               ],
                             ),
                           ),
@@ -160,7 +160,7 @@ class _HomeState extends State<Onboarding> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  decoration: BoxDecoration(color: Colors.black,borderRadius: BorderRadius.only(topLeft: Radius.circular(30),topRight: Radius.circular(30))),
+                  decoration: const BoxDecoration(color: Colors.black,borderRadius: BorderRadius.only(topLeft: Radius.circular(30),topRight: Radius.circular(30))),
                   width: 500,
                   height: 40,
                 ),
@@ -188,7 +188,7 @@ class _HomeState extends State<Onboarding> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  decoration: BoxDecoration(color: Colors.black,borderRadius: BorderRadius.only(bottomLeft: Radius.circular(30),bottomRight: Radius.circular(30))),
+                  decoration: const BoxDecoration(color: Colors.black,borderRadius: BorderRadius.only(bottomLeft: Radius.circular(30),bottomRight: Radius.circular(30))),
                   width: 500,
                   height: 60,
                 ),

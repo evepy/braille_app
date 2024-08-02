@@ -5,7 +5,10 @@ import 'package:braille_app/models/dia_min.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class DiacriticosWidget extends StatefulWidget {
+  const DiacriticosWidget({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _DiacriticosWidgetState createState() => _DiacriticosWidgetState();
 }
 
@@ -35,7 +38,7 @@ class _DiacriticosWidgetState extends State<DiacriticosWidget> {
           child: Text('Signos Diacriticos', style: GoogleFonts.mukta(fontWeight: FontWeight.w900, fontSize: 31, letterSpacing: 0.9,),textAlign: TextAlign.center,)),
         Expanded(
           child: Container(
-            constraints: BoxConstraints(maxWidth: 600),
+            constraints: const BoxConstraints(maxWidth: 600),
             child: GridView.builder(
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 3,
@@ -82,12 +85,13 @@ class DetalleB extends StatefulWidget {
   final List<DiacriticosMi> diacriticoData;
   final int initialIndex;
 
-  DetalleB({
+  const DetalleB({super.key, 
     required this.diacriticoData,
     required this.initialIndex,
   });
 
   @override
+  // ignore: library_private_types_in_public_api
   _DetalleBState createState() => _DetalleBState();
 }
 
@@ -133,7 +137,7 @@ class _DetalleBState extends State<DetalleB>{
   Widget build(BuildContext context) {
    return Dialog(
       alignment: const FractionalOffset(0,0.5),
-      child: Container(
+      child: SizedBox(
         height: 520,
         width: MediaQuery.of(context).size.width,
         child: Column(
@@ -177,14 +181,14 @@ class _DetalleBState extends State<DetalleB>{
                             onTap: () {
                               navigatePage(-1);
                             },
+                            radius: 50, // Radio del splash para que sea circular
+                            splashColor: Colors.grey, // Color del splash
+                            borderRadius: BorderRadius.circular(100),
                             child: const Icon(
                               Icons.arrow_drop_down,
                               size: 100,
                               color: Color(0xFFFDBF00),
-                            ),
-                            radius: 50, // Radio del splash para que sea circular
-                            splashColor: Colors.grey, // Color del splash
-                            borderRadius: BorderRadius.circular(100), // Borde circular
+                            ), // Borde circular
                           ),
                         ),
                       )
@@ -199,14 +203,14 @@ class _DetalleBState extends State<DetalleB>{
                             onTap: () {
                               navigatePage(1);
                             },
+                            radius: 50, // Radio del splash para que sea circular
+                            splashColor: Colors.grey, // Color del splash
+                            borderRadius: BorderRadius.circular(100),
                             child: const Icon(
                               Icons.arrow_drop_down,
                               size: 100,
                               color: Color(0xFFFDBF00),
-                            ),
-                            radius: 50, // Radio del splash para que sea circular
-                            splashColor: Colors.grey, // Color del splash
-                            borderRadius: BorderRadius.circular(100), // Borde circular
+                            ), // Borde circular
                           ),
                         ),
                       )

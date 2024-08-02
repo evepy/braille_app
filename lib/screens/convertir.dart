@@ -13,8 +13,8 @@ class ConvertirPg extends StatefulWidget {
 
 class _ConvertirPgState extends State<ConvertirPg> {
   //controlador para texto
-  TextEditingController _controllertxt = TextEditingController();
-  TextEditingController _braillecontrollertxt = TextEditingController();
+  final TextEditingController _controllertxt = TextEditingController();
+  final TextEditingController _braillecontrollertxt = TextEditingController();
 
   String traducirTextoABraille2(String textoBase) {
   String textoBraille = '';
@@ -106,8 +106,7 @@ class _ConvertirPgState extends State<ConvertirPg> {
                           const Align( alignment: Alignment.topLeft,
                             child: Text("Texto:",style: TextStyle(fontSize: 20 , fontWeight: FontWeight.w500))),
                              const SizedBox(height: 8,),
-                        Container(
-                        child: TextFormField(
+                        TextFormField(
                           controller: _controllertxt,
                           decoration: InputDecoration(
                             fillColor: Colors.white,
@@ -127,7 +126,6 @@ class _ConvertirPgState extends State<ConvertirPg> {
                             _braillecontrollertxt.text = traducirTextoABraille2(texto);
                           },
                         ),
-                      ),
                       const SizedBox(
                         height: 20,
                       ),
@@ -171,7 +169,7 @@ class _ConvertirPgState extends State<ConvertirPg> {
                   ),
                 ),
               ),
-             SizedBox(height: 50,)
+             const SizedBox(height: 50,)
             ],
           ),
         ));

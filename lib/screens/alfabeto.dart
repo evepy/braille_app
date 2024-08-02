@@ -91,7 +91,7 @@ class _AlfabetoPgState extends State<AlfabetoPg>
         body: 
         TabBarView(
           controller: controller, 
-          children: [
+          children: const [
           AbecedarioWidget(),
           DiacriticosWidget(),
           NumerosWidget(),

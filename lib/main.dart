@@ -17,10 +17,10 @@ void main() async {
     debugShowCheckedModeBanner: false,
     initialRoute: hasRunBefore ? '/home' : '/',
     routes: {
-      '/': (context) => Onboarding(),
-      '/home': (context) => Inicio(),
-      '/alfabeto': (context) => AlfabetoPg(),
-      '/diacriticos': (context) => DiacriticosWidget(),
+      '/': (context) => const Onboarding(),
+      '/home': (context) => const Inicio(),
+      '/alfabeto': (context) => const AlfabetoPg(),
+      '/diacriticos': (context) => const DiacriticosWidget(),
     },
   ));
 }

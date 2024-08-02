@@ -6,7 +6,7 @@ class AppBarE extends StatelessWidget implements PreferredSizeWidget {
   final double titleSize;
   final Color titleColor;
 
-  AppBarE({
+  const AppBarE({super.key, 
     required this.title,
     required this.backgroundColor,
     required this.titleSize,
@@ -14,7 +14,7 @@ class AppBarE extends StatelessWidget implements PreferredSizeWidget {
   });
 
   @override
-  Size get preferredSize => Size.fromHeight(60);
+  Size get preferredSize => const Size.fromHeight(60);
 
   @override
   Widget build(BuildContext context) {

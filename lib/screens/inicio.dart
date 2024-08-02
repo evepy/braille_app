@@ -10,14 +10,13 @@ class Inicio extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: const Color(0xFFFFFBE1),
-    appBar: AppBarE(
+    appBar: const AppBarE(
           title: "EDUSEA",
-          backgroundColor: const Color(0xFFFDBF00),
+          backgroundColor: Color(0xFFFDBF00),
           titleSize: 18.0,
-          titleColor: const Color.fromARGB(168, 255, 255, 255),),
+          titleColor: Color.fromARGB(168, 255, 255, 255),),
     body: SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 18),
@@ -85,7 +84,7 @@ class Inicio extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 50,),
+          const SizedBox(height: 50,),
         ]
        
         ),
